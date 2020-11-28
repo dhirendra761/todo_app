@@ -1,0 +1,25 @@
+.button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .green{background-color:#009B77} /* Green */
+  .blue {background-color:#c77e2f} /* Blue */
+.red {background-color: #C3447A;} /* Red */ 
+.gray {background-color: #E15D44} /* Gray */ 
+.black {background-color:#350b44} /* Black */
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.todo-left{
+    color:#ffffff;
+}

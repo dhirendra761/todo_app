@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import "./TodoList.css";
 
 export default class TodoList extends Component {
   state = {
@@ -63,6 +64,9 @@ export default class TodoList extends Component {
     }
     return (
       <div>
+        <div className="todo-left">
+          Todos Left: {this.state.todos.filter((todo) => !todo.complete).length}
+        </div>
         <TodoForm onSubmit={this.addTodo} />
         {todos.map((todo) => (
           <Todo
@@ -72,28 +76,40 @@ export default class TodoList extends Component {
             onDelete={() => this.handleDeleteTodo(todo.id)}
           />
         ))}
-        <div>
-          todos left:{this.state.todos.filter((todo) => !todo.complete).length}
-        </div>
-        <div>
-          <button onClick={() => this.uddateTodoToShow("all")}>all</button>
-          <button onClick={() => this.uddateTodoToShow("active")}>
-            active
+        <hr />
+        <div className="btn-group">
+          <button
+            className="button green"
+            onClick={() => this.uddateTodoToShow("all")}
+          >
+            All
           </button>
-          <button onClick={() => this.uddateTodoToShow("complete")}>
-            complete
+          <button
+            className="button blue"
+            onClick={() => this.uddateTodoToShow("active")}
+          >
+            Active
           </button>
-        </div>
-        {this.state.todos.some((todo) => todo.complete) ? (
-          <div>
-            <button onClick={this.removeAllCompleteToDo}>
+          <button
+            className="button red"
+            onClick={() => this.uddateTodoToShow("complete")}
+          >
+            Complete
+          </button>
+          {this.state.todos.some((todo) => todo.complete) ? (
+            <button
+              className="button gray"
+              onClick={this.removeAllCompleteToDo}
+            >
               Remove All Compelete
             </button>
-          </div>
-        ) : null}
-        <div>
-          <button onClick={this.handletoggleAllComplete}>
-            toggle all complete: {`${this.state.toggleAllComplete}`}
+          ) : null}
+
+          <button
+            className="button black"
+            onClick={this.handletoggleAllComplete}
+          >
+            Toggle All Complete: {`${this.state.toggleAllComplete}`}
           </button>
         </div>
       </div>
