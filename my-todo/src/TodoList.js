@@ -57,7 +57,7 @@ export default class TodoList extends Component {
     let todos = [];
     if (this.state.todoToShow === "all") {
       todos = this.state.todos;
-    } else if (this.state.todoToShow === "active") {
+    } else if (this.state.todoToShow === "incomplete") {
       todos = this.state.todos.filter((todo) => !todo.complete);
     } else if (this.state.todoToShow === "complete") {
       todos = this.state.todos.filter((todo) => todo.complete);
@@ -86,9 +86,9 @@ export default class TodoList extends Component {
           </button>
           <button
             className="button blue"
-            onClick={() => this.uddateTodoToShow("active")}
+            onClick={() => this.uddateTodoToShow("incomplete")}
           >
-            Active
+            Incomplete
           </button>
           <button
             className="button red"
